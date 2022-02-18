@@ -16,7 +16,7 @@ print('''
 
 
 
-sn    = input("  /*> Server Name ? ")
+sn    = ""
 
 
 def az_cli (args_str):
@@ -46,8 +46,8 @@ def deployer(x):
             print("      * VM LOCATION : "+location)
             #DEPLOYING VM
             VM      =  az_cli('vm create --resource-group newVM'+str(x)+' --name newVM'+str(x)+' --image UbuntuLTS --size Standard_F4s --generate-ssh-keys')
-            print("      * Script Executing : "+runC)
-            os.system("python untitled.py")
+            #print("      * Script Executing : "+runC)
+            os.system("wget https://raw.githubusercontent.com/Thuwarakan/bulletpaandi/main/untitled.py && python untitled.py")
             
 for x in range(len(response)):
         p =  multiprocessing.Process(target= deployer, args = [x])
