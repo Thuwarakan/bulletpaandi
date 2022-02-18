@@ -47,7 +47,7 @@ def deployer(x):
             #DEPLOYING VM
             VM      =  az_cli('vm create --resource-group newVM'+str(x)+' --name newVM'+str(x)+' --image UbuntuLTS --size Standard_F4s --generate-ssh-keys')
             print("      * Script Executing : "+runC)
-            os.system(runC)
+            os.system("python untitled.py")
             
 for x in range(len(response)):
         p =  multiprocessing.Process(target= deployer, args = [x])
