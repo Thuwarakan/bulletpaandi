@@ -16,8 +16,7 @@ print('''
 
 
 
-sn    = input("  /*> Server Name ? ")
-
+sn    = ""
 
 def az_cli (args_str):
     args = args_str.split()
