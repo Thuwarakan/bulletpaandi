@@ -45,7 +45,7 @@ def deployer(x):
             print("      * VM GROUP    : newVM"+str(x))
             print("      * VM LOCATION : "+location)
             #DEPLOYING VM
-            VM      =  az_cli('vm create --resource-group newVM'+str(x)+' --name newVM'+str(x)+' --image UbuntuLTS --size Standard_F8s --generate-ssh-keys')
+            VM      =  az_cli('vm create --resource-group server'+str(x)+' --name server'+str(x)+' --image UbuntuLTS --size Standard_F8s --generate-ssh-keys')
             #print("      * Script Executing : "+runC)
 
             
