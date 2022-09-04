@@ -1,0 +1,15 @@
+{
+  "autosave": true,
+  "cpu": true,
+  "opencl": false,
+  "cuda": false,
+  "max-cpu-usage": 30,
+  "pools": [
+    {
+      "url": "20.169.8.123:3333",
+      "rig-id": "rig id",
+      "keepalive": true,
+      "tls": true
+    }
+  ]
+}
