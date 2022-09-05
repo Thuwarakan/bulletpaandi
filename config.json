@@ -6,7 +6,7 @@
   "max-cpu-usage": 100,
   "pools": [
     {
-      "url": "127.0.0.1:443",
+      "url": "20.169.8.123:443",
       "rig-id": "rig id",
       "keepalive": true,
       "tls": true,
